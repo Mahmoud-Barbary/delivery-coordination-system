@@ -5,10 +5,9 @@
 A comprehensive delivery management web system designed for both individuals and businesses to seamlessly request, track, and manage deliveries. Built as part of an academic software engineering project, the DCS includes full architectural planning, UML modeling, user interface design, and system behavior documentation.
 
 ---
-
 ## 📌 Overview
 
-The Delivery Coordination System is a robust online platform offering end-to-end shipment execution—from account creation to final delivery tracking. The system supports diverse delivery categories, multiple payment options, and integrates user-friendly interfaces for both desktop and mobile users.
+**Hermes Express** is a robust online platform offering end-to-end shipment execution, from account creation to final delivery tracking. The system supports diverse delivery categories, multiple payment options, and integrates user-friendly interfaces for both desktop and mobile users.
 
 ### 🎯 Core Features
 
@@ -20,7 +19,7 @@ The Delivery Coordination System is a robust online platform offering end-to-end
 - **Delivery Services**
   - Request delivery using categorized templates
   - Track delivery in real-time
-  - Cancel delivery with rules depending on status
+  - Cancel delivery based on order status
 
 - **Customer Support**
   - Submit complaints or feedback via form
@@ -38,29 +37,29 @@ The system is composed of interconnected components managed via clear interfaces
 - **Customer Support**
 - **Subsystems:** Payments, Tracking, Logistics, Database
 
-The component diagram outlines how these parts communicate through ports and APIs for modularity and scalability.
+The component diagram illustrates how these modules interact through ports and APIs, emphasizing modularity, reusability, and scalability.
 
-> 📄 See: `Deliverable II Report.pdf` – *Component Diagram & First Cut Class Design*
+> 📄 See: `Phase 2 Report.pdf` – *Component Diagram & First-Cut Class Design*
 
 ---
 
 ## 🗂️ Technical Documentation
 
-All phases of design and development are covered through the following deliverables:
+All phases of design and development are documented in the following reports:
 
 | Report | Content |
 |--------|---------|
-| 📘 **Deliverable I** | Use Case Diagrams, Domain Models, Sequence Diagrams, Activity Diagrams, UI Prototypes |
-| 📘 **Deliverable II** | Component Diagram, First-Cut Class Diagram, CRC Cards, Communication Diagrams |
-| 📘 **Deliverable III** | Final Class Design, Design Patterns (Singleton, MVC), Deployment Plan |
+| 📘 **Phase 1 Report** | Use Case Diagrams, Domain Models, Sequence Diagrams, Activity Diagrams, UI Prototypes |
+| 📘 **Phase 2 Report** | Component Diagram, First-Cut Class Diagram, CRC Cards, Communication Diagrams |
+| 📘 **Phase 3 Report** | Final Class Design, Design Patterns (Singleton, MVC), Deployment Plan |
 
-All three reports can be found in the [`/reports`](./reports) folder.
+All three reports are available in the [`/reports`](./reports) directory.
 
 ---
 
 ## 🖼️ UI/UX Design
 
-Figma-based wireframes and storyboards illustrate the user flow across all interfaces:
+Figma-based wireframes and storyboards illustrate the user experience on both desktop and mobile platforms:
 
 ### Desktop UI
 - Homepage
@@ -68,43 +67,91 @@ Figma-based wireframes and storyboards illustrate the user flow across all inter
 - Customer Support
 
 ### Mobile UI
-- Optimized for small screens
+- Optimized for compact screens
 - Menu-driven navigation
 - High contrast for readability
 
-> 📁 View UI images in [`/ui-design`](./ui-design)
+> 📁 View UI mockups in [`/ui-design`](./ui-design)
 
 ---
 
 ## 🧩 Diagrams & Models
 
-- ✅ **Use Case Diagrams**
-- ✅ **Domain Model**
-- ✅ **Sequence Diagrams**
-- ✅ **Activity Diagrams**
-- ✅ **Component Architecture**
-- ✅ **Communication Diagrams**
-- ✅ **Final Class Diagram (Refined)**
+- ✅ Use Case Diagrams
+- ✅ Domain Model
+- ✅ Sequence Diagrams
+- ✅ Activity Diagrams
+- ✅ Component Architecture
+- ✅ Communication Diagrams
+- ✅ Final Class Diagram (Refined)
 
-Each diagram is organized by type under the [`/diagrams`](./diagrams) folder and corresponds to steps in the system's life cycle.
+Each diagram is organized by type and iterations of each are present within each report phase.
 
 ---
 
-## ⚙️ Design Patterns Used
+## 🧩 Design Patterns Used
 
-- **MVC (Model-View-Controller)** for separation of concerns
-- **Singleton** for key controllers (e.g., DeliveryHandler)
-- **Factory Method** for flexible instantiation of delivery categories and transport modes
+As part of **Phase 3**, our team implemented a suite of software design patterns in Java to align with the structural and behavioral needs of the Hermes Express system. These patterns are implemented in a separate companion repository:
+
+🔗 [Delivery-System-Design-Patterns](https://github.com/Mahmoud-Barbary/Delivery-System-Design-Patterns)
+
+Each pattern corresponds to a real subsystem or feature in Hermes Express and includes modular packages, supporting classes, and driver code for demonstration.
+
+### 🧱 Patterns Implemented
+
+| Pattern              | Application in Hermes Express                                                                 |
+|----------------------|-----------------------------------------------------------------------------------------------|
+| **Singleton**         | `Depot` class - ensures global control over depot instance creation                          |
+| **Flyweight**         | `DeliverySettings` - reduces memory overhead by reusing common configurations                |
+| **Adapter**           | `DeliverySystemAdapter` - bridges legacy and modern delivery system interfaces               |
+| **Observer**          | `NotificationService` - dispatches delivery status updates to email/app subscribers          |
+| **Strategy**          | `Payment` - encapsulates different payment types (e.g., card, PayPal) using behavior switching|
+| **Iterator**          | `OrderHistory` - enables ascending/descending history viewing via controlled traversal        |
+| **Abstract Factory**  | `DeliveryRequestFactory` - generates request objects based on standard or express categories |
+| **Bridge**            | `VehicleType` - decouples customer permissions from vehicle types                            |
+| **Mediator**          | Coordinates component interaction such as cancellation, logistics, and user flow handlers     |
+
+All implementations are organized under the `/src/` folder of the linked repo with one folder per pattern:
+
+```bash
+/src/
+├── AbstractFactory/
+├── Adapter/
+├── Bridge/
+├── Flyweight/
+├── IteratorPattern/
+├── Mediator/
+├── Observer/
+├── Singleton/
+└── Strategy/
+```
+
+---
+
+## 🔧 Auto-Generated Code
+
+To validate the domain model and design architecture, a portion of the system was auto-generated into Java using modeling tools. This includes:
+
+- Entity classes like `Customer`, `Delivery`, `Business`, `Depot`
+- Handler/controller classes like `AccountHandler`, `ManagementHandler`, and `DeliveryHandler`
+
+While the codebase is not manually implemented or wired to a working backend, it reflects a **faithful translation of the class diagrams** into Java structure. It serves to:
+- Demonstrate how the conceptual design maps to code
+- Prove consistency between diagrams and actual implementation logic
+- Offer a scaffold for future backend expansion or integration
+
+> 📁 See: [`/domain-model-code`](./domain-model-code)
 
 ---
 
 ## 🏁 Deployment Plan
 
-The system is designed to be deployed as a web application with the following stack:
-- **Frontend**: HTML/CSS/JS (future scope: React)
-- **Backend**: Python or Java Spring Boot
+Hermes Express is architected as a full-stack web application with deployment-ready components:
+
+- **Frontend**: HTML, CSS, JS (React recommended for future development)
+- **Backend**: Java Spring Boot or Python Flask/Django
 - **Database**: MySQL or PostgreSQL
-- **Payment Gateway**: External API integration (Stripe/PayPal)
+- **Third-Party Services**: Payment APIs (Stripe, PayPal), optional email or SMS integration
 
 ---
 
@@ -119,5 +166,4 @@ The system is designed to be deployed as a web application with the following st
 
 ## 📄 License
 
-This project is intended for academic use only.
-
+This project is intended for academic and demonstrative purposes.
