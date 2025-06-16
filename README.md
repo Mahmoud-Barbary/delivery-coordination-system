@@ -1,4 +1,4 @@
-![Hermes Express](https://github.com/user-attachments/assets/1cbd35a5-431b-4917-8964-602905dd082f)
+![Hermes Express Transparent](https://github.com/user-attachments/assets/c1153c43-c151-416f-b647-354173332c6e)
 
 # 📦 Delivery Coordination System (DCS)
 
