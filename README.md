@@ -1,5 +1,4 @@
-# Hermes Express, Delivery Coordination System
-A complete system design project for a delivery coordination platform, featuring UML-based documentation, Figma UI mockups, and Java implementations of the domain model and design patterns.
+![Hermes Express](https://github.com/user-attachments/assets/1cbd35a5-431b-4917-8964-602905dd082f)
 
 # 📦 Delivery Coordination System (DCS)
 
